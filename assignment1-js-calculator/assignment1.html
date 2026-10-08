@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Calculator - Assignment 1 </title>
+    <style>
+        body {
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .card {
+            background: #f8f8f8;
+            padding: 35px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        input,
+        select,
+        button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            font-size: 1rem;
+            width: 220px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background: rgb(144, 36, 245);
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #d8d8f0;
+        }
+
+        #result {
+            margin-top: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 0.8rem;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h1>JS Calculator</h1>
+        <input type="number" id="num1" placeholder="Enter first number">
+        <select id="operation">
+            <option value="Addition (+)">Addition (+)</option>
+            <option value="Subtraction (-)">Subtraction (-)</option>
+            <option value="Multiplication (*)">Multiplication (*)</option>
+            <option value="Division (/)">Division (/)</option>
+            <option value="Modulo (%)">Modulo (%)</option>
+            <option value="Power (**)">Power (**)</option>
+        </select>
+        <input type="number" id="num2" placeholder="Enter second number">
+        <button onclick="calculate()">Calculate</button>
+        <div id="result"></div>
+        <div class="footer">
+            Name - Tolnure Swapnaj Santosh | PRN - 1272250516 | Assignment - 1 | 17-07-2026
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            const op = document.getElementById('operation').value;
+            let result;
+
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById('result').textContent = 'Please enter valid numbers';
+                return;
+            }
+
+            switch (op) {
+                case 'Addition (+)': result = num1 + num2; break;
+                case 'Subtraction (-)': result = num1 - num2; break;
+                case 'Multiplication (*)': result = num1 * num2; break;
+                case 'Division (/)':
+                    if (num2 === 0) {
+                        document.getElementById('result').textContent = 'Cannot divide by zero';
+                        return;
+                    }
+                    result = num1 / num2;
+                    break;
+                case 'Modulo (%)': result = num1 % num2; break;
+                case 'Power (**)': result = num1 ** num2; break;
+                default: result = 'Invalid operation';
+            }
+            document.getElementById('result').textContent = 'Result: ' + result;
+        }
+    </script>
+</body>
+
+</html>
