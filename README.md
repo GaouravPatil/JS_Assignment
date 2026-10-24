@@ -1,5 +1,5 @@
 # Full Stack Development - Lab Assignments 1-6
-Tolnure Swapnaj Santosh | PRN 1272250516 | SY MCA Sem III
+Gaourav Patil | PRN 1272250774 | SY MCA Sem III
 
 ## Prerequisites
 
