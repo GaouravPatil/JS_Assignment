@@ -1,11 +1,12 @@
-# Full Stack Development - Lab Assignments 1-6
+# Full Stack Development - Lab Assignments 1-9
 Gaourav Patil | PRN 1272250774 | SY MCA Sem III
 
 ## Prerequisites
 
 - Node.js 22+ and npm (`node --version`, `npm --version`)
 - Any modern browser (Chrome / Edge / Firefox)
-- Verified with Node v22.23.3, npm 10.9.9
+- MongoDB running locally for assignments 8 and 9
+- Verified with Node v24.20.0, npm 11.19.0
 
 ## How to Run
 
@@ -107,4 +108,55 @@ curl -X POST http://localhost:5000/api/users \
 ```
 
 > Note: run only one Vite app per port. Default is `5173`. If busy, Vite picks the next free port, or force one with e.g. `npm run dev -- --port 5174 --strictPort`.
+
+### Assignment 7 — REST API using Express.js
+
+In-memory User CRUD API with a browser dashboard for testing.
+
+```bash
+cd assignment7-rest-api-express
+npm install
+npm start
+```
+
+- Dashboard + API: `http://localhost:5000`
+- Routes: `GET /api/users`, `GET /api/users/:id`, `POST /api/users`, `PUT /api/users/:id`, `DELETE /api/users/:id`
+
+### Assignment 8 — MongoDB Integration using Mongoose
+
+Product CRUD API persisted in MongoDB.
+
+```bash
+cd assignment8-mongodb-mongoose
+npm install
+npm start
+```
+
+- API: `http://localhost:5001`
+- Requires MongoDB on `mongodb://127.0.0.1:27017` (or set `MONGO_URI`)
+- Routes: full CRUD under `/api/products`
+
+### Assignment 9 — Full-Stack Integration (React + Express + MongoDB)
+
+MERN app with a React frontend, Express API, and MongoDB persistence.
+
+Backend (terminal 1):
+
+```bash
+cd assignment9-mern-fullstack/server
+npm install
+npm start                 # http://localhost:5002
+```
+
+Frontend (terminal 2):
+
+```bash
+cd assignment9-mern-fullstack/client
+npm install
+npm run dev               # http://localhost:5173
+```
+
+The UI loads users with Axios on mount and lets you create/delete users, plus
+create/update/delete products. Set `VITE_API_URL` if the backend URL changes.
+Each assignment folder has its own README with API details and curl examples.
 # JS_Assignment
